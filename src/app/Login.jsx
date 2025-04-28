@@ -17,7 +17,7 @@ export default function Login() {
     const [email,setEmail] =  useState('');
     const [senha,setSenha] =  useState('');
     const handleLogin = async () =>{
-      const url = ''
+     /* const url = ''
       try{
         const response  = await fetch(url,{
           method:'POST',
@@ -40,7 +40,8 @@ export default function Login() {
         router.push('/home'); 
       }catch(error){
         console.error("erro ao enviar os dados",error);
-      }
+      }*/
+      router.push("Home")
       
     }
     return (

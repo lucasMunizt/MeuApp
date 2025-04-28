@@ -189,17 +189,17 @@ export default function Logins({
 
                     <View style={styles.botaoContainer}>
                         <Pressable style={styles.botao} onPress={() => {
-                            if (etapaCadastro === 1) {
-                                setEtapaCadastro(2)
+                            if(TelaCadastro){
+                                if(etapaCadastro < 3){
+                                    setEtapaCadastro(etapaCadastro + 1);
+                                }else if(funcaoButaoCadastro){
+                                    funcaoButaoCadastro()
+                                }
                             }
-                            else if (etapaCadastro === 2) {
-                                setEtapaCadastro(3)
-                            }
-                            else if(etapaCadastro === 3){
-                              funcaoButaoCadastro()
-                            }
-                            else {
-                                funcaoButaoLogin()
+                            else if(telaLogin){
+                                if (funcaoButaoLogin) {
+                                    funcaoButaoLogin();
+                                  }
                             }
                         }}>
                             <Text style={{ color: "#fff", fontSize: 18, textAlign: 'center' }}>
