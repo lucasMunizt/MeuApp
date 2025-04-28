@@ -5,7 +5,18 @@ import { Image, StyleSheet, TextInput, Pressable } from "react-native";
 import cafe from "../../assets/icons/cofee.png";
 import almoco from "../../assets/icons/arroz-frito.png";
 import jantar from "../../assets/icons/jantar-romantico.png";
+import { useRouter } from 'expo-router';
+import CardRefeicao from "../../components/CardRefeicao";
 export default function Home() {
+   const router = useRouter();
+    const AdicionarProduto = (refeicao) =>{
+      router.push({
+        pathname: "AdicionarAlimento",
+        params: { refeicao: refeicao }
+      });
+    }
+
+
   return (
     <View
       style={{
@@ -191,11 +202,10 @@ export default function Home() {
         </View>
       </View>
 
-      <View></View>
       <View
         style={{
           width: 370,
-          height: 250,
+          height: 300,
           backgroundColor: "rgba(208, 208, 208, 0.18)",
           marginTop: 10,
           marginLeft: 10,
@@ -210,126 +220,33 @@ export default function Home() {
             marginTop: 30,
             padding: 10,
             borderRadius: 12,
+            borderBottomWidth: 2,          // define a espessura da linha
+            borderBottomColor: "#ccc",
           }}
         >
-          {/* Refeição 1 */}
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: 20, // AQUI cria o "gap" entre os blocos
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={cafe}
-                style={{
-                  width: 40,
-                  height: 40,
-                  marginRight: 10,
-                  marginLeft: 10,
-                }}
-              />
-              <View>
-                <Text>Café da Manhã</Text>
-                <Text>0/1200KCal</Text>
-              </View>
-            </View>
-            <Text
-              style={{
-                width: 30,
-                height: 30,
-                backgroundColor: "#004B2A",
-                color: "white",
-                textAlignVertical: "center",
-                textAlign: "center",
-                borderRadius: 110,
-              }}
-            >
-              +
-            </Text>
-          </View>
+          <CardRefeicao
+            imagem={cafe}
+            nome="Café da Manhã"
+            kcal="0/1200KCal"
+            onAdicionar={() => AdicionarProduto("Café da Manhã")}
+          />
 
-          {/* Refeição 2 */}
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginBottom: 20, // MESMO esquema: espaço entre refeições
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={cafe}
-                style={{
-                  width: 40,
-                  height: 40,
-                  marginRight: 10,
-                  marginLeft: 10,
-                }}
-              />
-              <View>
-                <Text>Almoço</Text>
-                <Text>0/1200KCal</Text>
-              </View>
-            </View>
-            <Text
-              style={{
-                width: 30,
-                height: 30,
-                backgroundColor: "#004B2A",
-                color: "white",
-                textAlignVertical: "center",
-                textAlign: "center",
-                borderRadius: 110,
-              }}
-            >
-              +
-            </Text>
-          </View>
+          <CardRefeicao
+            imagem={almoco}
+            nome="Almoço"
+            kcal="0/1200KCal"
+            onAdicionar={() => AdicionarProduto("Almoço")}
+          />
 
-          {/* Refeição 3 */}
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                source={cafe}
-                style={{
-                  width: 40,
-                  height: 40,
-                  marginRight: 10,
-                  marginLeft: 10,
-                }}
-              />
-              <View>
-                <Text>Jantar</Text>
-                <Text>0/1200KCal</Text>
-              </View>
-            </View>
-            <Text
-              style={{
-                width: 30,
-                height: 30,
-                backgroundColor: "#004B2A",
-                color: "white",
-                textAlignVertical: "center",
-                textAlign: "center",
-                borderRadius: 110,
-              }}
-            >
-              +
-            </Text>
-          </View>
-        </View>
+          <CardRefeicao
+            imagem={jantar}
+            nome="Jantar"
+            kcal="0/1200KCal"
+            onAdicionar={() => AdicionarProduto("Jantar")}
+          />
+         
       </View>
-
+      </View>
       <Footer />
     </View>
   );

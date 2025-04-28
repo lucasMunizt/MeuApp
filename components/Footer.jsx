@@ -1,65 +1,69 @@
-import { Text, View, Keyboard } from "react-native";
-import { Image, StyleSheet, TextInput, Pressable } from 'react-native';
+import { Text, View, Keyboard, Pressable, Image, StyleSheet, TextInput } from "react-native";
 import { useState, useEffect } from 'react';
-import homeImg from '../assets/icons/home.png'
-import pessoaImg from '../assets/icons/pessoa.png'
-import listaImg from '../assets/icons/lista.png'
-export default function Footer(){
+import homeImg from '../assets/icons/home.png';
+import pessoaImg from '../assets/icons/pessoa.png';
+import listaImg from '../assets/icons/lista.png';
+import { useRouter } from 'expo-router';
 
+export default function Footer() {
+  const router = useRouter();
 
-    return(
+  return (
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          height: 60,
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderTopColor: "#C8C8C8",
+          borderTopWidth: 1,
+        }}
+      >
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            flexDirection: 'row',
+            width: '100%',
+          }}
+        >
+          {/* HOME */}
+          <Pressable onPress={() => router.push('/Home')}>
+            <Image
+              source={homeImg}
+              style={{
+                width: 30,
+                height: 30,
+              }}
+            />
+          </Pressable>
 
-        <View style={{
-            flex:1,
-        }}>
-            <View
-                style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    width: '100%',
-                    height: 80,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderTopColor: "#C8C8C8", 
-                    borderTopWidth: 1, 
-            
-                }}
-            >
-                <View style={{
-                    alignItems:'center',
-                    justifyContent:'space-around',
-                    flexDirection:'row',
-                    width:'100%'
-                }}>
-                    <Image
-                        source={homeImg}
-                        style={{
-                            width:40,
-                            height:40
-                        }}
-                    />
+          {/* LISTA */}
+          <Pressable onPress={() => router.push('/Lista')}>
+            <Image
+              source={listaImg}
+              style={{
+                width: 30,
+                height: 30,
+              }}
+            />
+          </Pressable>
 
-                    <Image
-                        source={listaImg}
-                        style={{
-                            width:40,
-                            height:40
-                        }}
-                    />
-
-                    <Image
-                        source={pessoaImg}
-                        style={{
-                            width:40,
-                            height:40
-                        }}
-                    />
-                </View>
-            </View>
+          {/* PERFIL */}
+          <Pressable onPress={() => router.push('/Perfil')}>
+            <Image
+              source={pessoaImg}
+              style={{
+                width: 30,
+                height: 30,
+              }}
+            />
+          </Pressable>
         </View>
-
-    );
-
-
-
+      </View>
+    </View>
+  );
 }

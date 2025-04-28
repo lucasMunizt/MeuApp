@@ -16,12 +16,13 @@ export default function Layout(){
               borderBottomWidth: 0, // remove linha
             },
             contentStyle: {
-              backgroundColor: '#F2F2F2', // cor do fundo da tela #F2F2F2
+              backgroundColor: '#F2F2F2', 
             },
           }}>
             <Stack.Screen name="index" options={{title:"index"}}/>
             <Stack.Screen name="Login" options={{title:"Login"}}/>
             <Stack.Screen name="Cadastro" options={{title:"Cadastro"}}/>
+
 
 
 
