@@ -19,7 +19,7 @@ export default function Layout(){
               backgroundColor: '#F2F2F2', // cor do fundo da tela #F2F2F2
             },
           }}>
-            <Stack.Screen name="index" options={{title:"home"}}/>
+            <Stack.Screen name="index" options={{title:"index"}}/>
             <Stack.Screen name="Login" options={{title:"Login"}}/>
             <Stack.Screen name="Cadastro" options={{title:"Cadastro"}}/>
 
